@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>AdminEx</title>
+
+  <!--icheck-->
+  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+  <!--dashboard calendar-->
+  <link href="css/clndr.css" rel="stylesheet">
+
+  <!--Morris Chart CSS -->
+  <link rel="stylesheet" href="js/morris-chart/morris.css">
+
+  <!--common-->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                学生主页
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">主页</a>
+                </li>
+                <li class="active"> 学生主页 </li>
+            </ul>
+            <div class="state-info">
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="summary">
+                            <span>后10天上课数</span>
+                            <h3 class="red-txt">23</h3>
+                        </div>
+                        <div id="income" class="chart-bar"></div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="summary">
+                            <span>后10天上课数</span>
+                            <h3 class="green-txt">22</h3>
+                        </div>
+                        <div id="expense" class="chart-bar"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--statistics start-->
+                    <div class="row state-overview">
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel purple">
+                                <div class="symbol">
+                                    <i class="fa fa-gavel"></i>
+                                </div>
+                                <div class="state-value">
+                                    <div class="value">230</div>
+                                    <div class="title"> 已修学分 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel red">
+                                <div class="symbol">
+                                    <i class="fa fa-tags"></i>
+                                </div>
+                                <div class="state-value">
+                                    <div class="value">49</div>
+                                    <div class="title"> 待修学分 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row state-overview">
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel blue">
+                                <div class="symbol">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="state-value">
+                                    <div class="value" >查看个人成绩</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6">
+                            <div class="panel green">
+                                <div class="symbol">
+                                    <i class="fa fa-eye"></i>
+                                </div>
+                                <div class="state-value">
+                                    <div class="value">查看个人课表</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--statistics end-->
+                </div>
+                <div class="col-md-6">
+                    <!--more statistics box start-->
+                    <div class="panel deep-purple-box">
+                        <div class="panel">
+                            <div class="panel-body" style="height: 173px;">
+                                <div class="media usr-info">
+                                    <a href="#" class="pull-left">
+                                        <img class="thumb" src="images/photos/user-avatar.png" alt=""/>
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" style="margin-top: 20px;">李承骏</h4>
+                                        <span style="margin-top: 20px; font-size: 15px;">青岛软件学院、计算机科学与技术学院  计算机科学与技术专业2020级本科生</span>
+                                        <p>有志者，事竟成。有志者，事竟成。有志者，事竟成。有志者，事竟成。有志者，事竟成。有志者，事竟成。有志者，事竟成。有志者，事竟成。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer custom-trq-footer" >
+                                <ul class="user-states">
+                                    <li>
+                                        <i class="fa fa-heart"></i> 127
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-eye"></i> 853
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-user"></i> 311
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--more statistics box end-->
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="calendar-block ">
+                                <div class="cal1">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel">
+                        <header class="panel-heading">
+                            待办事件
+                            <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                            <ul class="to-do-list" id="sortable-todo">
+                                <li class="clearfix">
+                                    <span class="drag-marker">
+                                    <i></i>
+                                    </span>
+                                    <div class="todo-check pull-left">
+                                        <input type="checkbox" value="None" id="todo-check"/>
+                                        <label for="todo-check"></label>
+                                    </div>
+                                    <p class="todo-title">
+                                        2023.3.30 软件工程设计报告
+                                    </p>
+                                    <div class="todo-actionlist pull-right clearfix">
+
+                                        <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="drag-marker">
+                                    <i></i>
+                                    </span>
+                                    <div class="todo-check pull-left">
+                                        <input type="checkbox" value="None" id="todo-check1"/>
+                                        <label for="todo-check1"></label>
+                                    </div>
+                                    <p class="todo-title">
+                                        2023.3.30 信息安全上机报告
+                                    </p>
+                                    <div class="todo-actionlist pull-right clearfix">
+
+                                        <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="drag-marker">
+                                    <i></i>
+                                    </span>
+                                    <div class="todo-check pull-left">
+                                        <input type="checkbox" value="None" id="todo-check2"/>
+                                        <label for="todo-check2"></label>
+                                    </div>
+                                    <p class="todo-title">
+                                        2023.3.30 软件工程设计报告
+                                    </p>
+                                    <div class="todo-actionlist pull-right clearfix">
+
+                                        <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="drag-marker">
+                                    <i></i>
+                                    </span>
+                                    <div class="todo-check pull-left">
+                                        <input type="checkbox" value="None" id="todo-check3"/>
+                                        <label for="todo-check3"></label>
+                                    </div>
+                                    <p class="todo-title">
+                                        2023.3.30 软件工程设计报告
+                                    </p>
+                                    <div class="todo-actionlist pull-right clearfix">
+
+                                        <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="drag-marker">
+                                    <i></i>
+                                    </span>
+                                    <div class="todo-check pull-left">
+                                        <input type="checkbox" value="None" id="todo-check4"/>
+                                        <label for="todo-check4"></label>
+                                    </div>
+                                    <p class="todo-title">
+                                        2023.3.30 软件工程设计报告
+                                    </p>
+                                    <div class="todo-actionlist pull-right clearfix">
+
+                                        <a href="#" class="todo-remove"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form role="form" class="form-inline">
+                                        <div class="form-group todo-entry">
+                                            <input type="text" placeholder="添加待办项目" class="form-control" style="width: 100%">
+                                        </div>
+                                        <button class="btn btn-primary pull-right" type="submit">+</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel blue-box twt-info">
+                        <div class="panel-body">
+                            <h3>30 May 2023</h3>
+
+                            <p>Welcome to  <a href="#">upc.edu.cn</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--easy pie chart-->
+<script src="js/easypiechart/jquery.easypiechart.js"></script>
+<script src="js/easypiechart/easypiechart-init.js"></script>
+
+<!--Sparkline Chart-->
+<script src="js/sparkline/jquery.sparkline.js"></script>
+<script src="js/sparkline/sparkline-init.js"></script>
+
+<!--icheck -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+<script src="js/icheck-init.js"></script>
+
+<!-- jQuery Flot Chart-->
+<script src="js/flot-chart/jquery.flot.js"></script>
+<script src="js/flot-chart/jquery.flot.tooltip.js"></script>
+<script src="js/flot-chart/jquery.flot.resize.js"></script>
+
+
+<!--Morris Chart-->
+<script src="js/morris-chart/morris.js"></script>
+<script src="js/morris-chart/raphael-min.js"></script>
+
+<!--Calendar-->
+<script src="js/calendar/clndr.js"></script>
+<script src="js/calendar/evnt.calendar.init.js"></script>
+<script src="js/calendar/moment-2.2.1.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+<!--Dashboard Charts-->
+<script src="js/dashboard-chart-init.js"></script>
+
+
+</body>
+</html>

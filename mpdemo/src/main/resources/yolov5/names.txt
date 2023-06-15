@@ -1,0 +1,6 @@
+helmet
+head
+working clothes
+non working clothes
+insulating gloves
+non insulating golves
