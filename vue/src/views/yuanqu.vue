@@ -21,11 +21,11 @@
     </el-row>
     <el-row>
       <div class="big">
-        <div class="top">
+        <el-card style="width:400px">
           <el-button type="danger" plain>开始转换</el-button>
           <el-button type="danger" plain>文本导出</el-button>
           <el-button type="danger" plain>Word导出</el-button>
-        </div>
+        </el-card>
         <div class="bottom">
           <div class="left"><video-player class="video-player vjs-custom-skin"
                                           ref="videoPlayer"
@@ -83,200 +83,200 @@
 <!--    </el-row>-->
 
 
-    <el-row>
-      <el-col span="6">
-        <el-card>
-          <el-row>
-            <div class="text item" style="align-content: center;margin-left: 140px;font-size: 20px;">
-              着装诊断
-            </div>
-          </el-row>
-          <el-row>
-            <div>
-              <video-player class="video-player vjs-custom-skin"
-                            ref="clothvideo"
-                            :playsinline="true"
-                            @play="changestatus"
-                            :options="clothplayerOption">
-              </video-player>
-            </div>
-          </el-row>
-          <el-row v-for="(item,index) in clothdetect" :key="item.id" style="margin-bottom: 22px;">
-            <div v-if="item.status==1">
-              <el-alert
-                  class="myalert"
-                  :title=item.name
-                  type="success"
-                  show-icon
-                  :closable="false">
-              </el-alert>
-            </div>
-            <div v-if="item.status==0" >
-              <el-alert
-                  class="myalert"
-                  :title=item.name
-                  type="error"
-                  show-icon
-                  :closable="false">
-              </el-alert>
-            </div>
+<!--    <el-row>-->
+<!--      <el-col span="6">-->
+<!--        <el-card>-->
+<!--          <el-row>-->
+<!--            <div class="text item" style="align-content: center;margin-left: 140px;font-size: 20px;">-->
+<!--              着装诊断-->
+<!--            </div>-->
+<!--          </el-row>-->
+<!--          <el-row>-->
+<!--            <div>-->
+<!--              <video-player class="video-player vjs-custom-skin"-->
+<!--                            ref="clothvideo"-->
+<!--                            :playsinline="true"-->
+<!--                            @play="changestatus"-->
+<!--                            :options="clothplayerOption">-->
+<!--              </video-player>-->
+<!--            </div>-->
+<!--          </el-row>-->
+<!--          <el-row v-for="(item,index) in clothdetect" :key="item.id" style="margin-bottom: 22px;">-->
+<!--            <div v-if="item.status==1">-->
+<!--              <el-alert-->
+<!--                  class="myalert"-->
+<!--                  :title=item.name-->
+<!--                  type="success"-->
+<!--                  show-icon-->
+<!--                  :closable="false">-->
+<!--              </el-alert>-->
+<!--            </div>-->
+<!--            <div v-if="item.status==0" >-->
+<!--              <el-alert-->
+<!--                  class="myalert"-->
+<!--                  :title=item.name-->
+<!--                  type="error"-->
+<!--                  show-icon-->
+<!--                  :closable="false">-->
+<!--              </el-alert>-->
+<!--            </div>-->
 
-          </el-row>
-        </el-card>
-      </el-col>
-      <el-col span="17" style="margin-left: 30px">
-        <el-card>
-            <div class="text item" style="align-content: center;margin-left: 530px;margin-bottom: 20px;font-size: 20px;">
-              操作判断
-            </div>
-          <el-row>
-            <el-col span="7" style="margin-left: 33px">
-              <div>
-                <video-player class="video-player vjs-custom-skin"
-                              ref="videoPlayer"
-                              :playsinline="true"
-                              @play="changestatus1"
-                              :options="playerOptions1[0]">
-                </video-player>
-              </div>
-            </el-col>
-            <el-col span="7" style="margin-left: 33px">
-              <div>
-                <video-player class="video-player vjs-custom-skin"
-                              ref="videoPlayer"
-                              :playsinline="true"
-                              @play="changestatus2"
-                              :options="playerOptions1[1]">
-                </video-player>
-              </div>
-            </el-col>
-            <el-col span="7" style="margin-left: 33px">
-              <div>
-                <video-player class="video-player vjs-custom-skin"
-                              ref="videoPlayer"
-                              :playsinline="true"
-                              @play="changestatus3"
-                              :options="playerOptions1[2]">
-                </video-player>
-              </div>
-            </el-col>
-          </el-row>
-          <el-row style="margin-bottom: 15px">
-            <el-col span="7" style="margin-left: 33px;" v-for="(item) in step">
-              <el-card>
-                <div>
-                  <el-row>
-                    <el-alert
-                        :title=item.name
-                        type="info"
-                        :closable="false">
-                    </el-alert>
-                  </el-row>
-                  <el-row>
-                    <el-alert
-                        title="应操作："
-                        :description=item.wantstep
-                        type="info"
-                        show-icon
-                        :closable="false">
-                    </el-alert>
-                  </el-row>
-                  <el-row>
-                    <div v-if="item.status==1">
-                      <el-alert
-                          class="myalert"
-                          title="实操作："
-                          :description=item.actualstep
-                          type="success"
-                          show-icon
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                    <div v-if="item.status==-1">
-                      <el-alert
-                          class="myalert"
-                          title="实操作："
-                          :description=item.actualstep
-                          type="warning"
-                          show-icon
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                    <div v-if="item.status==0" >
-                      <el-alert
-                          class="myalert"
-                          title="实操作："
-                          :description=item.actualstep
-                          type="error"
-                          show-icon
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                  </el-row>
-                  <el-row>
-                    <div v-if="item.status==1">
-                      <el-alert
-                          title="判定时间："
-                          type="success"
-                          show-icon
-                          :description="item.detecttime"
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                    <div v-if="item.status==0">
-                      <el-alert
-                          title="判定时间："
-                          type="error"
-                          show-icon
-                          :description="item.detecttime"
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                    <div v-if="item.status==-1">
-                      <el-alert
-                          title="判定时间："
-                          type="warning"
-                          show-icon
-                          :description="item.detecttime"
-                          :closable="false">
-                      </el-alert>
-                    </div>
-                  </el-row>
-                </div>
-              </el-card>
-            </el-col>
-          </el-row>
+<!--          </el-row>-->
+<!--        </el-card>-->
+<!--      </el-col>-->
+<!--      <el-col span="17" style="margin-left: 30px">-->
+<!--        <el-card>-->
+<!--            <div class="text item" style="align-content: center;margin-left: 530px;margin-bottom: 20px;font-size: 20px;">-->
+<!--              操作判断-->
+<!--            </div>-->
+<!--          <el-row>-->
+<!--            <el-col span="7" style="margin-left: 33px">-->
+<!--              <div>-->
+<!--                <video-player class="video-player vjs-custom-skin"-->
+<!--                              ref="videoPlayer"-->
+<!--                              :playsinline="true"-->
+<!--                              @play="changestatus1"-->
+<!--                              :options="playerOptions1[0]">-->
+<!--                </video-player>-->
+<!--              </div>-->
+<!--            </el-col>-->
+<!--            <el-col span="7" style="margin-left: 33px">-->
+<!--              <div>-->
+<!--                <video-player class="video-player vjs-custom-skin"-->
+<!--                              ref="videoPlayer"-->
+<!--                              :playsinline="true"-->
+<!--                              @play="changestatus2"-->
+<!--                              :options="playerOptions1[1]">-->
+<!--                </video-player>-->
+<!--              </div>-->
+<!--            </el-col>-->
+<!--            <el-col span="7" style="margin-left: 33px">-->
+<!--              <div>-->
+<!--                <video-player class="video-player vjs-custom-skin"-->
+<!--                              ref="videoPlayer"-->
+<!--                              :playsinline="true"-->
+<!--                              @play="changestatus3"-->
+<!--                              :options="playerOptions1[2]">-->
+<!--                </video-player>-->
+<!--              </div>-->
+<!--            </el-col>-->
+<!--          </el-row>-->
+<!--          <el-row style="margin-bottom: 15px">-->
+<!--            <el-col span="7" style="margin-left: 33px;" v-for="(item) in step">-->
+<!--              <el-card>-->
+<!--                <div>-->
+<!--                  <el-row>-->
+<!--                    <el-alert-->
+<!--                        :title=item.name-->
+<!--                        type="info"-->
+<!--                        :closable="false">-->
+<!--                    </el-alert>-->
+<!--                  </el-row>-->
+<!--                  <el-row>-->
+<!--                    <el-alert-->
+<!--                        title="应操作："-->
+<!--                        :description=item.wantstep-->
+<!--                        type="info"-->
+<!--                        show-icon-->
+<!--                        :closable="false">-->
+<!--                    </el-alert>-->
+<!--                  </el-row>-->
+<!--                  <el-row>-->
+<!--                    <div v-if="item.status==1">-->
+<!--                      <el-alert-->
+<!--                          class="myalert"-->
+<!--                          title="实操作："-->
+<!--                          :description=item.actualstep-->
+<!--                          type="success"-->
+<!--                          show-icon-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                    <div v-if="item.status==-1">-->
+<!--                      <el-alert-->
+<!--                          class="myalert"-->
+<!--                          title="实操作："-->
+<!--                          :description=item.actualstep-->
+<!--                          type="warning"-->
+<!--                          show-icon-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                    <div v-if="item.status==0" >-->
+<!--                      <el-alert-->
+<!--                          class="myalert"-->
+<!--                          title="实操作："-->
+<!--                          :description=item.actualstep-->
+<!--                          type="error"-->
+<!--                          show-icon-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                  </el-row>-->
+<!--                  <el-row>-->
+<!--                    <div v-if="item.status==1">-->
+<!--                      <el-alert-->
+<!--                          title="判定时间："-->
+<!--                          type="success"-->
+<!--                          show-icon-->
+<!--                          :description="item.detecttime"-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                    <div v-if="item.status==0">-->
+<!--                      <el-alert-->
+<!--                          title="判定时间："-->
+<!--                          type="error"-->
+<!--                          show-icon-->
+<!--                          :description="item.detecttime"-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                    <div v-if="item.status==-1">-->
+<!--                      <el-alert-->
+<!--                          title="判定时间："-->
+<!--                          type="warning"-->
+<!--                          show-icon-->
+<!--                          :description="item.detecttime"-->
+<!--                          :closable="false">-->
+<!--                      </el-alert>-->
+<!--                    </div>-->
+<!--                  </el-row>-->
+<!--                </div>-->
+<!--              </el-card>-->
+<!--            </el-col>-->
+<!--          </el-row>-->
 
 
-        </el-card>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-card style="padding-bottom: 50px">
-        <el-card shadow="hover" style="margin-top: 10px;width: 300px">
-          模型组合
-        </el-card>
-        <el-col span="5" style="margin-top: 20px">
-          <el-checkbox-group v-model="checkList" @change="ch">
-            <div v-for="(c,index) in tableData1" :key="index">
-              <el-card shadow="hover" style="margin-top: 10px;height: 60px;width: 300px">
-                <el-checkbox :label="c.key" style="width: 300px">{{c.name}}</el-checkbox>
-              </el-card>
-            </div>
-          </el-checkbox-group>
-          <el-button type="success" round @click="check" style="height: 60px;width: 200px;font-size: 20px;margin-top: 20px;">确认选择模型</el-button>
-        </el-col>
-        <el-col span="16">
-          <video-player class="video-player vjs-custom-skin"
-                        ref="videoPlayer"
-                        :playsinline="true"
-                        @play="detect"
-                        :options="playerOptions2">
-          </video-player>
-        </el-col>
-      </el-card>
+<!--        </el-card>-->
+<!--      </el-col>-->
+<!--    </el-row>-->
+<!--    <el-row>-->
+<!--      <el-card style="padding-bottom: 50px">-->
+<!--        <el-card shadow="hover" style="margin-top: 10px;width: 300px">-->
+<!--          模型组合-->
+<!--        </el-card>-->
+<!--        <el-col span="5" style="margin-top: 20px">-->
+<!--          <el-checkbox-group v-model="checkList" @change="ch">-->
+<!--            <div v-for="(c,index) in tableData1" :key="index">-->
+<!--              <el-card shadow="hover" style="margin-top: 10px;height: 60px;width: 300px">-->
+<!--                <el-checkbox :label="c.key" style="width: 300px">{{c.name}}</el-checkbox>-->
+<!--              </el-card>-->
+<!--            </div>-->
+<!--          </el-checkbox-group>-->
+<!--          <el-button type="success" round @click="check" style="height: 60px;width: 200px;font-size: 20px;margin-top: 20px;">确认选择模型</el-button>-->
+<!--        </el-col>-->
+<!--        <el-col span="16">-->
+<!--          <video-player class="video-player vjs-custom-skin"-->
+<!--                        ref="videoPlayer"-->
+<!--                        :playsinline="true"-->
+<!--                        @play="detect"-->
+<!--                        :options="playerOptions2">-->
+<!--          </video-player>-->
+<!--        </el-col>-->
+<!--      </el-card>-->
 
-    </el-row>
+<!--    </el-row>-->
 
   </div>
 </template>
