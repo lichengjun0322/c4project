@@ -1,126 +1,167 @@
 <template>
-  <div>
-    <div>
+  <div  class="big">
+      <!-- 导航 -->
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>视频管理</el-breadcrumb-item>
       </el-breadcrumb>
-<!--      <el-row gutter="20" style="margin-bottom: 20px">-->
-<!--        <el-col span="12">-->
-<!--          <el-container>-->
-<!--            <div class='demo' style="width: 900px">-->
-<!--              <h1 style="font-size: 30px">园区总览监控</h1>-->
-<!--            </div>-->
-<!--          </el-container>-->
-<!--        </el-col>-->
-<!--      </el-row>-->
-<!--      <el-row gutter="20">-->
-<!--          <el-col span="8" v-for="(item,index) in yuanqu" :key="item.id">-->
-<!--            <el-card shadow="hover" style="margin-top: 10px">-->
-<!--              {{ item.name }}-->
-<!--              <el-tag v-if="item.id%2===0">空闲中</el-tag>-->
-<!--              <el-tag v-else type="danger">作业中</el-tag>-->
-<!--            </el-card>-->
-<!--            <video-player-->
-<!--                class="video-player vjs-custom-skin"-->
-<!--                ref="videoPlayer"-->
-<!--                :playsinline="true"-->
-<!--                :options="playerOptions[index]"-->
-<!--            ></video-player>-->
-<!--          </el-col>-->
-<!--      </el-row>-->
+
+      <div class="big_01">
+        <el-dialog title="新增视频" :visible.sync="dialogFormVisible">
+            <el-form>
+                <el-form-item label="视频名称" :label-width="formLabelWidth">
+                    <el-input v-model="all_name.name" autocomplete="off" width="200"></el-input>
+                </el-form-item>
+                <el-form-item label="视频文件" :label-width="formLabelWidth">
+                    <!-- 这里的action为服务器地址 -->
+                    <el-upload class="upload-demo"  :data="all_name" ref="upload" :auto-upload="false" drag action="https://jsonplaceholder.typicode.com/posts/" multiple>
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                        <div class="el-upload__tip" slot="tip">只能上传视频文件，且不超过500Mb</div>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="queding()">确
+                    定</el-button>
+            </div>
+        </el-dialog>
+        <div class="body">
+            <div class="column" v-for="(item, index) in all_src" :key="index"><a :href="getUrl(item.video_href)"
+                    class="a_01"><img :src="item.img_src" alt=""></a><a class="a_02" :href="getUrl(item.video_href)">
+                    <p>20210512140033333333</p>
+                </a></div>
+      
+        </div>
+        <div class="fenye">
+            <el-pagination background layout="prev, pager, next" :total=page_count>
+            </el-pagination>
+        </div>
+
     </div>
   </div>
 </template>
 
 <script>
-
+import bus from "../Bus.js/bus"
+//import Get_data from "../../api/video";
 export default {
-  name: "yuanquzonglan",
-  data() {
-    return {
-      yuanqu: [
-        // {id: 1, name: "园区一", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/双屏视频-613-冷备用转热备用-不规范.mp4')},
-        // {id: 2, name: "园区二", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/双屏视频-613-检修转热备用-规范.mp4')},
-        // {id: 3, name: "园区三", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/数据样例视频.mp4')},
-        // {id: 4, name: "园区四", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/双屏视频-613-检修转热备用-规范.mp4')},
-        // {id: 5, name: "园区五", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/双屏视频-613-冷备用转热备用-不规范.mp4')},
-        // {id: 6, name: "园区六", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/数据样例视频.mp4')},
-        // {id: 7, name: "园区七", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/双屏视频-613-检修转热备用-规范.mp4')},
-        // {id: 8, name: "园区八", type: "video/mp4", src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/数据样例视频.mp4')},
-      ],
-      videosource: [],
-      ALLData: [],
-      form: {},
-      playsinline: true,
-      playerOptions: [],
-      options: "",
-      value: [],
-      yuanquoptions: [{
-        value: '1',
-        label: '园区1'
-      }, {
-        value: '2',
-        label: '园区2'
-      }, {
-        value: '3',
-        label: '园区3'
-      }, {
-        value: '4',
-        label: '园区4'
-      }, {
-        value: '5',
-        label: '园区5'
-      }, {
-        value: '6',
-        label: '园区6'
-      }, {
-        value: '7',
-        label: '园区7'
-      },]
-    }
-  },
-  components: {},
-  created() {
-    this.getplayeroptions();
-  },
-  methods: {
-    handleChange(value) {
-      console.log(value);
+
+    data() {
+        return {
+
+            from:"",
+            dialogFormVisible: false,
+            all_name:{
+                name:""
+            },
+            formLabelWidth: "100px",
+
+            page_count: 1,    //页数量
+            img_nums: 2,   //视频数量
+            all_src: [{ img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }],
+            // img_src:[require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),],    //返回数组 图像地址
+            // video_href:[require("../../public/video/202105121400.mp4")]   //视频地址
+        }
     },
-    getplayeroptions() {
-      for (var i = 0; i < this.yuanqu.length; i++) {
-        let arrs = {
-          playbackRates: [0.5, 1.0, 2.0], //播放速度
-          autoplay: false, //如果true,浏览器准备好时开始回放。
-          muted: false, // 默认情况下将会消除任何音频。
-          loop: false, // 导致视频一结束就重新开始。
-          preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-          language: "zh-CN",
-          aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-          fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
-          sources: [
-            {
-              type: "video/mp4",
-              src: this.yuanqu[i].src //url地址
-            }
-          ],
-          poster: "", //封面地址
-          notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
-          controlBar: {
-            timeDivider: true,
-            durationDisplay: true,
-            remainingTimeDisplay: false,
-            fullscreenToggle: true //全屏按钮
-          }
-        };
-        this.playerOptions.push(arrs);
-      }
+    methods: {
+        getUrl(p) {
+            return "/jianceguanli/" + encodeURIComponent(p);
+        },
+        get_data() {
+            Get_data();
+        },
+        queding() {
+            //上传
+            this.$refs.upload.submit();
+            this.dialogFormVisible=false;
+        }
+    },
+    created() {
+        //在开始之前获取
+        //this.all_src=this.get_data();
+
+    },
+    mounted() {
+        bus.$on("add_video", () => {
+            console.log("yes");
+            this.dialogFormVisible = true;
+        })
     }
-  }
 }
 </script>
 
-<style scoped>
 
+<style scoped>
+.el-breadcrumb {
+  margin-bottom:20px;
+}
+.big {
+    width: 100%;
+    height: 100%;
+}
+.big_01 {
+  width:100%;
+  height:100%;
+
+}
+.body {
+    /* margin:0 auto;
+    width:80%;
+    height:800px; */
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.column {
+    width: 24%;
+    height: 30%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.fenye {
+    width: 100%;
+    height: 10%;
+}
+
+.el-pagination {
+    text-align: center;
+    padding-top: 4%;
+}
+
+.a_01 {
+    display: block;
+    width: 100%;
+    height: 76%;
+}
+
+.a_02 {
+    display: block;
+    width: 100%;
+    height: 20%;
+    text-decoration: none;
+    line-height: 20%;
+    text-align: center;
+    color: black;
+}
+
+.a_01:hover {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+
+}
 </style>

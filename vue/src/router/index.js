@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import showdb from '../views/showdatabase.vue'
+
 import yuanqu from '../views/yuanqu.vue'
-import n3 from '../views/n3.vue'
 import yuanquzonglan from "@/views/yuanquzonglan";
 import yuanqu1 from "@/views/yuanqu";
 import make_oplist from "@/views/make_oplist";
@@ -43,11 +42,6 @@ const routes = [
                 component: shouye
             },
             {
-                path: '/showdb',
-                name: 'showdb',
-                component: showdb
-            },
-            {
                 path: '/yuanquzonglan',
                 name: 'yuanquzonglan',
                 component: yuanquzonglan
@@ -66,6 +60,7 @@ const routes = [
                 path: '/jianceguanli',
                 name: 'jianceguanli',
                 component: jianceguanli,
+                props:true
             },
             {
                 path: '/tongjirizhi',

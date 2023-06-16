@@ -77,12 +77,6 @@ export default {
       sysuser: localStorage.getItem("sysuser")? JSON.parse(localStorage.getItem("sysuser")) : {}
     }
   },
-  // created: function () {
-  //   this.$http.get("http://localhost:8088/yuanqu").then((response) => {//箭头函数使作用域继承父级，即created当前级，this可生效
-  //     console.log(response.data)
-  //     this.tableData = response.data
-  //   })
-  // },
   methods: {
     collapse() {  // 点击收缩按钮触发
       this.isCollapse = !this.isCollapse
