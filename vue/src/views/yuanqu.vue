@@ -303,18 +303,18 @@ export default {
         {id:3,name:"步骤3",wantstep:"接地保护跳闸开关打开",actualstep:"检测动作中...",detecttime:"检测动作中...",status:"-1"},
       ],
       stepvideo:[
-        {id:1,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤1.mp4')},
-        {id:2,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤2.mp4')},
-        {id:3,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤3.mp4')}
+        // {id:1,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤1.mp4')},
+        // {id:2,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤2.mp4')},
+        // {id:3,src:require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/步骤3.mp4')}
       ],
       yuanqu: [
-        {id: 1, name: "头盔检测", type: "video/mp4", value:1 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-1.mp4')},
-        {id: 2, name: "头盔+工作服检测", type: "video/mp4", value:11 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-11.mp4')},
-        {id: 3, name: "头盔+工作服+手套检测", type: "video/mp4", value:111 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-111.mp4')},
-        {id: 4, name: "工作服检测", type: "video/mp4", value:10 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-10.mp4')},
-        {id: 5, name: "手套检测", type: "video/mp4", value:100 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-100.mp4')},
-        {id: 6, name: "头盔+手套检测", type: "video/mp4", value:101 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-101.mp4')},
-        {id: 7, name: "工作服+手套检测", type: "video/mp4", value:110 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-110.mp4')},
+        // {id: 1, name: "头盔检测", type: "video/mp4", value:1 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-1.mp4')},
+        // {id: 2, name: "头盔+工作服检测", type: "video/mp4", value:11 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-11.mp4')},
+        // {id: 3, name: "头盔+工作服+手套检测", type: "video/mp4", value:111 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-111.mp4')},
+        // {id: 4, name: "工作服检测", type: "video/mp4", value:10 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-10.mp4')},
+        // {id: 5, name: "手套检测", type: "video/mp4", value:100 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-100.mp4')},
+        // {id: 6, name: "头盔+手套检测", type: "video/mp4", value:101 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-101.mp4')},
+        // {id: 7, name: "工作服+手套检测", type: "video/mp4", value:110 ,src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/cloth-110.mp4')},
       ],
       playerOptions1: [],
       playerOptions: {
@@ -327,10 +327,10 @@ export default {
         aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [
-          {
-            type: "video/mp4",
-            src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题\\tested.mp4')//url地址
-          }
+          // {
+          //   type: "video/mp4",
+          //   src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题\\tested.mp4')//url地址
+          // }
         ],
         poster: "", //封面地址
         notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
@@ -351,10 +351,10 @@ export default {
         aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [
-          {
-            type: "video/mp4",
-            src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题\\1_helmet_coat_glove_0001.mp4')//url地址
-          }
+          // {
+          //   type: "video/mp4",
+          //   src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题\\1_helmet_coat_glove_0001.mp4')//url地址
+          // }
         ],
         poster: "", //封面地址
         notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
@@ -375,10 +375,10 @@ export default {
         aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [
-          {
-            type: "video/mp4",
-            src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/服装检测.mp4')//url地址
-          }
+          // {
+          //   type: "video/mp4",
+          //   src: require('E:\\我的文件\\各课课件及资料\\服务外包大赛\\服务外包大赛泰坦智慧赛题/服装检测.mp4')//url地址
+          // }
         ],
         poster: "", //封面地址
         notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
