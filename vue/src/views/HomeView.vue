@@ -14,7 +14,7 @@
       >
         <div style="height: 60px; line-height: 60px; text-align: center">
           <img src="../assets/muanlogo.png" alt="" style="width: 35px; position: relative; top: 10px">
-          <b style="color: white;margin-left: 5px;margin-right: 10px" v-show="logoTextShow ">慕安电力</b>
+          <b style="color: white;margin-left: 5px;margin-right: 10px" v-show="logoTextShow ">HUPU</b>
         </div>
         <el-menu-item index="shouye">
           <i class="el-icon-view"></i>
@@ -22,17 +22,17 @@
         </el-menu-item>
         <el-menu-item index="yuanquzonglan">
           <i class="el-icon-view"></i>
-          <span slot="title"> 园区总览</span>
+          <span slot="title"> 视频管理</span>
         </el-menu-item>
         
 
         <el-menu-item index="jianceguanli">
           <i class="el-icon-cpu"></i>
-          <span slot="title"> 统计分析</span>
+          <span slot="title"> 视频分析</span>
         </el-menu-item>
         <el-menu-item index="tongjirizhi">
           <i class="el-icon-date"></i>
-          <span slot="title"> 操作日志</span>
+          <span slot="title"> 战术集合</span>
         </el-menu-item>
       </el-menu>
     </el-aside>

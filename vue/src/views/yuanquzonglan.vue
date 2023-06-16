@@ -3,32 +3,32 @@
     <div>
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>园区总览</el-breadcrumb-item>
+        <el-breadcrumb-item>视频管理</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-row gutter="20" style="margin-bottom: 20px">
-        <el-col span="12">
-          <el-container>
-            <div class='demo' style="width: 900px">
-              <h1 style="font-size: 30px">园区总览监控</h1>
-            </div>
-          </el-container>
-        </el-col>
-      </el-row>
-      <el-row gutter="20">
-          <el-col span="8" v-for="(item,index) in yuanqu" :key="item.id">
-            <el-card shadow="hover" style="margin-top: 10px">
-              {{ item.name }}
-              <el-tag v-if="item.id%2===0">空闲中</el-tag>
-              <el-tag v-else type="danger">作业中</el-tag>
-            </el-card>
-            <video-player
-                class="video-player vjs-custom-skin"
-                ref="videoPlayer"
-                :playsinline="true"
-                :options="playerOptions[index]"
-            ></video-player>
-          </el-col>
-      </el-row>
+<!--      <el-row gutter="20" style="margin-bottom: 20px">-->
+<!--        <el-col span="12">-->
+<!--          <el-container>-->
+<!--            <div class='demo' style="width: 900px">-->
+<!--              <h1 style="font-size: 30px">园区总览监控</h1>-->
+<!--            </div>-->
+<!--          </el-container>-->
+<!--        </el-col>-->
+<!--      </el-row>-->
+<!--      <el-row gutter="20">-->
+<!--          <el-col span="8" v-for="(item,index) in yuanqu" :key="item.id">-->
+<!--            <el-card shadow="hover" style="margin-top: 10px">-->
+<!--              {{ item.name }}-->
+<!--              <el-tag v-if="item.id%2===0">空闲中</el-tag>-->
+<!--              <el-tag v-else type="danger">作业中</el-tag>-->
+<!--            </el-card>-->
+<!--            <video-player-->
+<!--                class="video-player vjs-custom-skin"-->
+<!--                ref="videoPlayer"-->
+<!--                :playsinline="true"-->
+<!--                :options="playerOptions[index]"-->
+<!--            ></video-player>-->
+<!--          </el-col>-->
+<!--      </el-row>-->
     </div>
   </div>
 </template>
