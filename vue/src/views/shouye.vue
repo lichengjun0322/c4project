@@ -7,6 +7,11 @@
 import axios from "axios";
 
 export default {
+  data(){
+    return {
+      new_html:""
+    }
+  },
   created() {
     axios.interceptors.response.use(res => {
       // 请求成功对响应数据做处理，此处返回的数据是axios.then(res)中接收的数据
@@ -24,17 +29,23 @@ export default {
     axios.defaults.headers.get['Access-Control-Allow-Origin'] = "*";
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = "*";
     axios.get("http://localhost:8080/api").then((res) => {
-      console.log(res.data);
-      this.$refs.shouye.innerHTML = "<div>123</div>";
+      console.log(111);
+      console.log((res.data).toString());
+      this.new_html="1";
+      console.log(123);
     }).catch((err) => {
       console.log(err);
+      this.new_html=err.data;
+      this.$refs.shouye.innerHTML=err.data+"<style>.bbs-index-web-bbsindexWarp {min-width:80%; max-width:100%;}</style>";
     })
   }
 }
 </script>
 
 
+
 <style scoped>
+
 .el-card__body {
   padding: 10px;
 }
