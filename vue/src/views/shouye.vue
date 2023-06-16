@@ -29,13 +29,11 @@ export default {
     axios.defaults.headers.get['Access-Control-Allow-Origin'] = "*";
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = "*";
     axios.get("http://localhost:8080/api").then((res) => {
-      console.log(111);
-      console.log((res.data).toString());
-      this.new_html="1";
-      console.log(123);
+      console.log("这里是good");
+      this.$refs.shouye.innerHTML=res.data+"<style>.bbs-index-web-bbsindexWarp {min-width:80%; max-width:100%;}</style>";
     }).catch((err) => {
       console.log(err);
-      this.new_html=err.data;
+      console.log("这里是err");
       this.$refs.shouye.innerHTML=err.data+"<style>.bbs-index-web-bbsindexWarp {min-width:80%; max-width:100%;}</style>";
     })
   }
