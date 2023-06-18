@@ -4,61 +4,161 @@
       <div style="margin-bottom: 30px">
         <el-breadcrumb separator="/">
           <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>操作日志</el-breadcrumb-item>
+          <el-breadcrumb-item>数据统计</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
     </el-main>
-    <el-card>
-      <el-table
-          :data="tableData"
-          style="width: 100%;text-align: center;font-size: 15px;line-height: 50px"
-          stripe
-          max-height="600">
-        <el-table-column
-            fixed
-            prop="opID"
-            label="操作序号"
-            width="150">
-        </el-table-column>
-        <el-table-column
-            prop="user"
-            label="操作用户"
-            width="200">
-        </el-table-column>
-        <el-table-column
-            prop="userid"
-            label="操作用户ID"
-            width="200">
-        </el-table-column>
-        <el-table-column
-            prop="ip"
-            label="操作用户IP"
-            width="200">
-        </el-table-column>
-        <el-table-column
-            prop="opcontent"
-            label="操作内容"
-            width="600">
-        </el-table-column>
-        <el-table-column
-            fixed="right"
-            label="操作"
-            width="200">
-          <template slot-scope="scope">
-            <el-button
-                @click.native.prevent="deleteRow(scope.$index, tableData)"
-                type="text"
-                size="small">
-              移除
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-card>
+    <el-row>
+      <el-col :span="24">
+        <el-card>
+          <div slot="header" class="clearfix">
+            <span style="font-size: 25px">总体分析</span>
+          </div>
+          <el-col :span="24">
+            <el-card>
+              <div slot="header" class="clearfix">
+                <span style="font-size: 18px">主队数据分析</span>
+              </div>
+              <el-col :span="10"><div id="main" style="width: 600px;height:400px;"></div></el-col>
+              <el-col :span="12" offset="1"><el-table
+                  :data="tableData"
+                  style="width: 100%"
+                  height="380">
+                <el-table-column
+                    fixed
+                    prop="date"
+                    label="球员编号"
+                    width="150">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="得分"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="province"
+                    label="投篮"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="city"
+                    label="篮板"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="address"
+                    label="助攻"
+                    width="300">
+                </el-table-column>
+                <el-table-column
+                    prop="zip"
+                    label="失误"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="foul"
+                    label="犯规"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="fouled"
+                    label="被犯规"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="plus"
+                    label="正负值"
+                    width="120">
+                </el-table-column>
+              </el-table></el-col>
+            </el-card>
+          </el-col>
+
+          <el-col :span="24">
+            <el-card>
+              <div slot="header" class="clearfix">
+                <span style="font-size: 18px">客队数据分析</span>
+              </div>
+              <el-col :span="10"><div id="main1" style="width: 600px;height:400px;"></div></el-col>
+              <el-col :span="12" offset="1"><el-table
+                  :data="tableData"
+                  style="width: 100%"
+                  height="380">
+                <el-table-column
+                    fixed
+                    prop="date"
+                    label="球员编号"
+                    width="150">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="得分"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="province"
+                    label="投篮"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="city"
+                    label="篮板"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="address"
+                    label="助攻"
+                    width="300">
+                </el-table-column>
+                <el-table-column
+                    prop="zip"
+                    label="失误"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="foul"
+                    label="犯规"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="fouled"
+                    label="被犯规"
+                    width="120">
+                </el-table-column>
+                <el-table-column
+                    prop="plus"
+                    label="正负值"
+                    width="120">
+                </el-table-column>
+              </el-table></el-col>
+            </el-card>
+          </el-col>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <el-col :span="24">
+      <el-card shadow="always">
+        <el-row>
+          <el-card shadow="hover" style="width: 200px">
+            <el-select v-model="value" placeholder="请选择" @change="log()">
+              <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+              >
+              </el-option>
+            </el-select>
+          </el-card>
+        </el-row>
+      </el-card>
+    </el-col>
 
   </div>
 </template>
 <script>
+import * as echarts from 'echarts';
 export default {
   methods: {
     deleteRow(index, rows) {
@@ -69,20 +169,108 @@ export default {
     return {
       name: "tongjirizhi",
       tableData: [
-        {opID:11, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户查看系统操作日志'},
-        {opID:10, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户添加日程'},
-        {opID:9, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户查看系统数据统计分析'},
-        {opID:8, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户删除机房信息'},
-        {opID:7, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户编辑机房信息'},
-        {opID:6, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户新增机房信息'},
-        {opID:5, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户选取模型检测着装'},
-        {opID:4, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户为机房4下发操作票'},
-        {opID:3, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户查看机房4'},
-        {opID:2, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户查看园区总览界面'},
-        {opID:1, user:'admin', userid:'2007010308', ip:'127.0.0.1', opcontent:'用户登录成功'},
-      ]
-    }
+        {date: '球员A',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员B',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员C',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员D',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员E',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员F',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员G',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员H',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员I',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员J',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+      ],
+      tableData2: [
+        {date: '球员1',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员2',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员3',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员4',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员5',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员6',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员7',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员8',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员9',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+        {date: '球员10',name: '42', province: '16/22', city: '10', address: '上海市普陀区金沙江路 1518 弄', zip: 6, foul:4, fouled:7, plus:'+15'},
+      ],
+      options: [{
+        value: '1',
+        label: '黄金糕'
+      }, {
+        value: '2',
+        label: '双皮奶'
+      }, {
+        value: '3',
+        label: '蚵仔煎'
+      }, {
+        value: '4',
+        label: '龙须面'
+      }, {
+        value: '5',
+        label: '北京烤鸭'
+      }],
+      value: '',
+      mychart: null,
+      mychart1: null,
   }
+  },
+  mounted(){
+    this.drawlines();
+  },
+  methods: {
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
+    },
+    log(){
+      console.log(this.value);
+    },
+    drawlines(){
+      let mychart = echarts.init(document.getElementById("main"))
+      let mychart1 = echarts.init(document.getElementById("main1"))
+      let option = {
+        legend: {
+          bottom: 30
+        },
+        title: {
+          text: '各项数据之最',
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            mark: { show: true },
+            dataView: { show: true, readOnly: false },
+            restore: { show: true },
+            saveAsImage: { show: true }
+          }
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series: [
+          {
+            name: '数据之最',
+            type: 'pie',
+            radius: [30, 100],
+            center: ['50%', '50%'],
+            roseType: 'area',
+            itemStyle: {
+              borderRadius: 8
+            },
+            data: [
+              { value: 40, name: '最高得分' },
+              { value: 18, name: '最多篮板' },
+              { value: 13, name: '最多助攻' },
+              { value: 6, name: '最多抢断' },
+              { value: 4, name: '最多盖帽' },
+              { value: 3, name: '最多失误' },
+            ]
+          }
+        ]
+      };
+      mychart.setOption(option);
+      mychart1.setOption(option);
+    },
+  },
 }
 </script>
 
@@ -98,5 +286,21 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   width: 50%;
+}
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
 }
 </style>

@@ -34,7 +34,7 @@
         </el-menu-item>
         <el-menu-item index="tongjirizhi">
           <i class="el-icon-date"></i>
-          <span slot="title"> 战术集合</span>
+          <span slot="title"> 数据统计</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
