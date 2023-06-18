@@ -6,7 +6,7 @@ import yuanqu from '../views/yuanqu.vue'
 import yuanquzonglan from "@/views/yuanquzonglan";
 import yuanqu1 from "@/views/yuanqu";
 import make_oplist from "@/views/make_oplist";
-import jianceguanli from "@/views/jianceguanli";
+
 import shouye from "@/views/shouye";
 import store from "@/store";
 import login from "@/views/Login";
@@ -57,9 +57,9 @@ const routes = [
                 component: yuanqu,
             },
             {
-                path: '/jianceguanli',
-                name: 'jianceguanli',
-                component: jianceguanli,
+                path: '/shipinfenxi',
+                name: 'shipinfenxi',
+                component: shipinfenxi,
                 props:true
             },
             {
