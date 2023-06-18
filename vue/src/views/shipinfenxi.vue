@@ -19,7 +19,7 @@
                     </div>
                     <div>
                         <el-button @click="openFullScreen1" v-loading.fullscreen.lock="fullscreenLoading">开始转换</el-button>
-                        <el-button @click="go()">跳转</el-button>
+                        <el-button @click="go()">数据分析</el-button>
                     </div>
                 </div>
                 <div class="come_out"></div>
@@ -67,6 +67,7 @@ export default {
             }, 5000);
         },
         cli() {
+            this.$refs.video_video.pause();
             //这里是点击按钮
             if (document.querySelector(".enter").value == "") {
                 console.log("");
