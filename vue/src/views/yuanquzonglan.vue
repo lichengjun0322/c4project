@@ -1,12 +1,6 @@
 <template>
-  <div  class="big">
-      <!-- 导航 -->
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>视频管理</el-breadcrumb-item>
-      </el-breadcrumb>
-
-      <div class="big_01">
+    <div class="big">
+        <!-- 导航 -->
         <el-dialog title="新增视频" :visible.sync="dialogFormVisible">
             <el-form>
                 <el-form-item label="视频名称" :label-width="formLabelWidth">
@@ -14,7 +8,8 @@
                 </el-form-item>
                 <el-form-item label="视频文件" :label-width="formLabelWidth">
                     <!-- 这里的action为服务器地址 -->
-                    <el-upload class="upload-demo"  :data="all_name" ref="upload" :auto-upload="false" drag action="https://jsonplaceholder.typicode.com/posts/" multiple>
+                    <el-upload class="upload-demo" :data="all_name" ref="upload" :auto-upload="false" drag
+                        action="https://jsonplaceholder.typicode.com/posts/" multiple>
                         <i class="el-icon-upload"></i>
                         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
                         <div class="el-upload__tip" slot="tip">只能上传视频文件，且不超过500Mb</div>
@@ -27,20 +22,28 @@
                     定</el-button>
             </div>
         </el-dialog>
-        <div class="body">
-            <div class="column" v-for="(item, index) in all_src" :key="index"><a :href="getUrl(item.video_href)"
-                    class="a_01"><img :src="item.img_src" alt=""></a><a class="a_02" :href="getUrl(item.video_href)">
-                    <p>20210512140033333333</p>
-                </a></div>
-      
-        </div>
-        <div class="fenye">
-            <el-pagination background layout="prev, pager, next" :total=page_count>
-            </el-pagination>
-        </div>
+        <div class="big_01">
+            <div class="head_head">
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb-item>视频管理</el-breadcrumb-item>
+                </el-breadcrumb>
+                <el-button @click="dialogFormVisible = true"> 新增视频</el-button>
+            </div>
+            <div class="body">
+                <div class="column" v-for="(item, index) in all_src" :key="index"><a :href="getUrl(item.video_href)"
+                        class="a_01"><img :src="item.img_src" alt=""></a><a class="a_02" :href="getUrl(item.video_href)">
+                        <p>20210512140033333333</p>
+                    </a></div>
 
+            </div>
+            <div class="fenye">
+                <el-pagination background layout="prev, pager, next" :total=page_count>
+                </el-pagination>
+            </div>
+
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -51,10 +54,10 @@ export default {
     data() {
         return {
 
-            from:"",
+            from: "",
             dialogFormVisible: false,
-            all_name:{
-                name:""
+            all_name: {
+                name: ""
             },
             formLabelWidth: "100px",
 
@@ -67,7 +70,7 @@ export default {
     },
     methods: {
         getUrl(p) {
-            return "/jianceguanli/" + encodeURIComponent(p);
+            return "/shipinfenxi?url=" + encodeURIComponent(p);
         },
         get_data() {
             Get_data();
@@ -75,7 +78,7 @@ export default {
         queding() {
             //上传
             this.$refs.upload.submit();
-            this.dialogFormVisible=false;
+            this.dialogFormVisible = false;
         }
     },
     created() {
@@ -94,24 +97,50 @@ export default {
 
 
 <style scoped>
-.el-breadcrumb {
-  margin-bottom:20px;
-}
+
+
 .big {
     width: 100%;
     height: 100%;
 }
+
 .big_01 {
-  width:100%;
-  height:100%;
+    width: 100%;
+    height: 100%;
 
 }
+
+.head_head {
+    width: 100%;
+    height: 7%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(245, 245, 245);
+    position: relative;
+}
+
+.head_head>.el-button {
+    position: absolute;
+    left: 89.5%;
+    height: 95%;
+    width: 10%;
+
+
+}
+.el-breadcrumb {
+    position: absolute;
+    left: 0.5%;
+    height: 95%;
+    width: 10%;
+    padding-top:1%;
+}
+
 .body {
     /* margin:0 auto;
     width:80%;
     height:800px; */
     width: 100%;
-    height: 90%;
+    height: 83%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -163,5 +192,4 @@ img {
     width: 100%;
     height: 100%;
 
-}
-</style>
+}</style>

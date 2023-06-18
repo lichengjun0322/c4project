@@ -60,6 +60,7 @@ const routes = [
                 path: '/shipinfenxi',
                 name: 'shipinfenxi',
                 component: shipinfenxi,
+                hidden: true,
                 props:true
             },
             {
