@@ -4,7 +4,7 @@
     <!-- 导航 -->
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/shouye' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>视频管理</el-breadcrumb-item>
+      <el-breadcrumb-item>视频分析</el-breadcrumb-item>
     </el-breadcrumb>
 
     <div class="bottom">
