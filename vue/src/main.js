@@ -9,6 +9,7 @@ import axios from "axios";
 import store from './store'
 import VueCoreVideoPlayer from 'vue-core-video-player'
 import echarts from 'echarts'
+import JsonExcel from "vue-json-excel";
 Vue.prototype.$echarts = echarts
 // 引入方式一
 import 'vue-video-player/src/custom-theme.css'
@@ -19,7 +20,7 @@ Vue.use(VueCoreVideoPlayer)
 axios.defaults.baseURL = "http://localhost:8088"
 Vue.prototype.$http=axios
 Vue.config.productionTip = false
-
+Vue.component('downloadExcel',JsonExcel);
 Vue.use(ElementUI,{size:"mini"});
 
 new Vue({
