@@ -6,7 +6,7 @@ import yuanqu from '../views/yuanqu.vue'
 import yuanquzonglan from "@/views/yuanquzonglan";
 import yuanqu1 from "@/views/yuanqu";
 import make_oplist from "@/views/make_oplist";
-
+import shipinfenxi from "@/views/shipinfenxi";
 import shouye from "@/views/shouye";
 import store from "@/store";
 import login from "@/views/Login";

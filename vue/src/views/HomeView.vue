@@ -26,7 +26,7 @@
         </el-menu-item>
         
 
-        <el-menu-item index="jianceguanli">
+        <el-menu-item index="shipinfenxi">
           <i class="el-icon-cpu"></i>
           <span slot="title"> 视频分析</span>
         </el-menu-item>
