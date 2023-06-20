@@ -21,16 +21,19 @@
           <span slot="title"> 首页</span>
         </el-menu-item>
         <el-menu-item index="yuanquzonglan">
-          <i class="el-icon-view"></i>
+          <i class="el-icon-folder-opened"></i>
           <span slot="title"> 视频管理</span>
         </el-menu-item>
         
 
 
         <el-menu-item index="shipinfenxi?url=null">
-
-          <i class="el-icon-cpu"></i>
+          <i class="el-icon-video-camera"></i>
           <span slot="title"> 视频分析</span>
+        </el-menu-item>
+        <el-menu-item index="analysic">
+          <i class="el-icon-aim"></i>
+          <span slot="title"> 投篮分析</span>
         </el-menu-item>
         <el-menu-item index="tongjirizhi">
           <i class="el-icon-date"></i>
