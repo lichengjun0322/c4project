@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import analysic from '../views/analysic.vue';
 import yuanqu from '../views/yuanqu.vue'
 import yuanquzonglan from "@/views/yuanquzonglan";
 import yuanqu1 from "@/views/yuanqu";
