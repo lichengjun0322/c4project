@@ -12,7 +12,6 @@ import store from "@/store";
 import login from "@/views/Login";
 import register from "@/views/Register";
 import tongjirizhi from "@/views/tongjirizhi";
-import analysic1 from "@/views/analysic"
 
 
 
@@ -71,7 +70,7 @@ const routes = [
             {
                 path: '/analysic',
                 name: 'analysic',
-                component: analysic1,
+                component: analysic,
             }
 
         ]
