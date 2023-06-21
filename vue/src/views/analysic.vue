@@ -154,7 +154,7 @@ export default {
             sources: [
               {
                 type: "video/mp4",
-                src: require('../../public/video/2.mp4') //url地址
+                src: require('../../public/video/4.mp4') //url地址
               }
             ],
             poster: "", //封面地址
@@ -178,7 +178,7 @@ export default {
             sources: [
               {
                 type: "video/mp4",
-                src: require('../../public/video/3.mp4') //url地址
+                src: require('../../public/video/5.mp4') //url地址
               }
             ],
             poster: "", //封面地址

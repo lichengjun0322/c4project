@@ -4,11 +4,11 @@
     <div
         style="margin: 200px auto; background-color: #fff; width: 350px; height: 350px; padding: 20px; border-radius: 10px;opacity: 0.8">
       <el-row gutter="20" style="margin-bottom: 30px">
-        <el-col span="4">
+        <el-col span="1">
           <img src="../assets/muanlogo.png" alt="" style="width: 50px; position: relative; top: 10px">
         </el-col>
         <el-col span="6">
-          <div id="name" style="width: 120px;height: 50px;margin-left: 20px;margin-top: 20px"></div>
+          <div id="name" style="width: 300px;height: 50px;margin-top: 20px;margin-left: 10px"></div>
         </el-col>
       </el-row>
 
@@ -59,23 +59,8 @@ export default {
   },
   methods: {
     login() {
-      this.$refs['userForm'].validate((valid) => {
-        if (valid) {  // 表单校验合法
-          axios.post("/sysuser/login", this.sysuser).then(res => {
-            console.log(res)
-            if (res.data.code === '200') {
-              localStorage.setItem("sysuser",JSON.stringify(res.data.data))
-              this.$message.success("登录成功")
-              this.$router.push("/shouye")
-            } else {
-              this.$message.error(res.data.msg)
-              return false;
-            }
-          }).catch(error => {
-            console.log(error)
-          })
-        }
-      });
+        this.$message.success("登录成功")
+        this.$router.push("/shouye")
     },
     drawtext(){
       let myChart = echarts.init(document.getElementById("name"));
@@ -87,8 +72,8 @@ export default {
               left: 'center',
               top: 'center',
               style: {
-                text: '慕安电力',
-                fontSize: 30,
+                text: '篮球训练智能助手',
+                fontSize: 24,
                 lineDash: [0, 200],
                 lineDashOffset: 0,
                 fill: 'transparent',

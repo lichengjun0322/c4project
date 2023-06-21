@@ -14,7 +14,7 @@
       >
         <div style="height: 60px; line-height: 60px; text-align: center">
           <img src="../assets/muanlogo.png" alt="" style="width: 35px; position: relative; top: 10px">
-          <b style="color: white;margin-left: 5px;margin-right: 10px" v-show="logoTextShow ">HUPU</b>
+          <b style="color: white;margin-left: 5px;margin-right: 10px" v-show="logoTextShow ">篮球训练智能助手</b>
         </div>
         <el-menu-item index="shouye">
           <i class="el-icon-view"></i>

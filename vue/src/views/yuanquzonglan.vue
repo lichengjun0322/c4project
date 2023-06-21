@@ -33,7 +33,7 @@
             <div class="body">
                 <div class="column" v-for="(item, index) in all_src" :key="index"><a :href="getUrl(item.video_href)"
                         class="a_01"><img :src="item.img_src" alt=""></a><a class="a_02" :href="getUrl(item.video_href)">
-                        <p>20210512140033333333</p>
+                        <p>{{item.video_name}}</p>
                     </a></div>
 
             </div>
@@ -63,7 +63,18 @@ export default {
 
             page_count: 1,    //页数量
             img_nums: 2,   //视频数量
-            all_src: [{ img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }, { img_src: require("../../public/img/jietu2.png"), video_href: require("../../public/video/202105121400.mp4") }],
+            all_src: [{ img_src: require("../../public/img/20269.jpg"), video_href: require("../../public/video/video1.mp4"),video_name:'video1' },
+              { img_src: require("../../public/img/258.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video2'  },
+              { img_src: require("../../public/img/263.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video3'  },
+              { img_src: require("../../public/img/19365.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video4'  },
+              { img_src: require("../../public/img/19564.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video5'  },
+              { img_src: require("../../public/img/19985.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video6'  },
+              { img_src: require("../../public/img/243.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video7'  },
+              { img_src: require("../../public/img/20464.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video8'  },
+              { img_src: require("../../public/img/20639.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video9'  },
+              { img_src: require("../../public/img/20988.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video10'  },
+              { img_src: require("../../public/img/21143.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video11'  },
+              { img_src: require("../../public/img/21560.jpg"), video_href: require("../../public/video/202105121400.mp4"),video_name:'video12'  }],
             // img_src:[require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),require("../../public/img/jietu2.png"),],    //返回数组 图像地址
             // video_href:[require("../../public/video/202105121400.mp4")]   //视频地址
         }
